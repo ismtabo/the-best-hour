@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import "reset-css";
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--sky-blue-crayola);
+  color: var(--ming);
+}
+
+:root {
+  /* CSS HEX */
+  /* Source: https://coolors.co/86ebfc-088196-417882-020708-81c1cc */
+  --sky-blue-crayola: #86ebfcff;
+  --metallic-seaweed: #088196ff;
+  --ming: #417882ff;
+  --rich-black-fogra-39: #020708ff;
+  --middle-blue: #81c1ccff;
+}

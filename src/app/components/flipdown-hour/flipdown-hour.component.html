@@ -1,0 +1,14 @@
+<div class="flipdown-hour-container">
+    <div class="flipdown-hour-item flip-down-hour-item-hour">
+        <JSB-flipclock-template [value]="hour.hours | digits: 'tens'"></JSB-flipclock-template>
+        <JSB-flipclock-template [value]="hour.hours | digits: 'units'"></JSB-flipclock-template>
+    </div>
+    <div class="flipdown-hour-item flip-down-hour-item-minutes">
+        <JSB-flipclock-template [value]="hour.minutes | digits: 'tens'"></JSB-flipclock-template>
+        <JSB-flipclock-template [value]="hour.minutes | digits: 'units'"></JSB-flipclock-template>
+    </div>
+    <div class="flipdown-hour-item flip-down-hour-item-seconds">
+        <JSB-flipclock-template [value]="hour.seconds | digits: 'tens'"></JSB-flipclock-template>
+        <JSB-flipclock-template [value]="hour.seconds | digits: 'units'"></JSB-flipclock-template>
+    </div>
+</div>

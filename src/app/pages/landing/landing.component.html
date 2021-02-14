@@ -1,0 +1,11 @@
+<div class="landing-container">
+    <h1>
+        <ng-container *ngIf="!isTargetHour(); else elseIsTargetHour">
+            ¿Cuánto tiempo queda hasta la llegada de LA hora?
+        </ng-container>
+        <ng-template #elseIsTargetHour>
+            Estate pendiente, ha llegado LA hora y puede que ocurra algo interesante
+        </ng-template>
+    </h1>
+    <app-flipdown-hour [hour]="diff"></app-flipdown-hour>
+</div>

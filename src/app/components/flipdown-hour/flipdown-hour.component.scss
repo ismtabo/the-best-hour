@@ -1,0 +1,13 @@
+.flipdown-hour-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+
+    .flipdown-hour-item {
+      flex-direction: row;
+    }
+  }
+}
