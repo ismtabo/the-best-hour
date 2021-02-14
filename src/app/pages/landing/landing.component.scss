@@ -10,4 +10,12 @@
     font-family: "Courier New", Courier, monospace;
     padding: 0.1em;
   }
+
+  .img {
+    max-width: 80%;
+
+    img {
+      width: 100%;
+    }
+  }
 }

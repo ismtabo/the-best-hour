@@ -6,7 +6,7 @@ import * as moment from 'moment';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnDestroy {
-  private targetHour = { hour: 0, minutes: 13 };
+  private targetHour = { hour: 0, minutes: 3 };
   private target: moment.Moment;
   diff: { hours: number; minutes: number; seconds: number };
   interval: number;
