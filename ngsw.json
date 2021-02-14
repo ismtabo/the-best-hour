@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1613344202265,
+  "timestamp": 1613344296111,
   "index": "/the-best-hour/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/the-best-hour/favicon.ico",
         "/the-best-hour/index.html",
-        "/the-best-hour/main.d4216a533309c570b269.js",
+        "/the-best-hour/main.d955ec306fb9daeb6672.js",
         "/the-best-hour/manifest.webmanifest",
         "/the-best-hour/polyfills.a4021de53358bb0fec14.js",
         "/the-best-hour/runtime.e227d1a0e31cbccbf8ec.js",
@@ -52,8 +52,8 @@
     "/the-best-hour/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/the-best-hour/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/the-best-hour/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/the-best-hour/index.html": "37853c9cf2186061501e3299e04ba5c44bec447e",
-    "/the-best-hour/main.d4216a533309c570b269.js": "33d885ce7048b98f02384d623b8c49aec1f47a2d",
+    "/the-best-hour/index.html": "d24f01a4f002037c9f9758aa399bca977052abf9",
+    "/the-best-hour/main.d955ec306fb9daeb6672.js": "47fb3de2b6e63a4752560e1e4de7d647d98a5ce0",
     "/the-best-hour/manifest.webmanifest": "f57afefa70bfa5919a5a2d01994a81c8a00167a5",
     "/the-best-hour/polyfills.a4021de53358bb0fec14.js": "b47435a9ef2a4829f2f9dfd35599bde3614981b1",
     "/the-best-hour/runtime.e227d1a0e31cbccbf8ec.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
