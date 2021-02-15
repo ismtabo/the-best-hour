@@ -1,4 +1,5 @@
 import { OverlayModule } from '@angular/cdk/overlay';
+import { APP_BASE_HREF } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,7 +45,7 @@ import { LandingComponent } from './pages/landing/landing.component';
     NgxFlagIconCssModule,
     OverlayModule,
   ],
-  providers: [],
+  providers: [{ provide: APP_BASE_HREF, useValue: environment.prefix }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
