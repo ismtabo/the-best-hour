@@ -1,0 +1,30 @@
+.collapse-icon {
+  width: 4em;
+}
+
+::ng-deep .languages-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--ming);
+  color: var(--sky-blue-crayola);
+  border-radius: 10%;
+  padding: 0.5em;
+
+  .language {
+    font-family: "Courier New", Courier, monospace;
+    height: 4ex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &.active {
+      border: 0.5em solid var(--ming);
+      color: var(--ming);
+      background-color: var(--sky-blue-crayola);
+    }
+  }
+}

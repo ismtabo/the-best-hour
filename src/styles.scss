@@ -1,5 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import "reset-css";
+@import "~@angular/cdk/overlay-prebuilt.css";
+@import "~hamburgers/dist/hamburgers.min.css";
+
+// Source: https://www.npmjs.com/package/hamburgers#customization
+$hamburger-layer-width: 4em;
+$hamburger-layer-height: 1ex;
+
+::ng-deep * {
+  font-family: "Courier New", Courier, monospace;
+}
 
 body {
   height: 100vh;

@@ -1,0 +1,14 @@
+{
+  "app": {
+    "landing": {
+      "waiting-banner": "Cât timp mai rămâne până la sosirea orei?",
+      "ready-banner": "Rămâneți la curent, a sosit timpul și se poate întâmpla ceva interesant."
+    },
+    "languages": {
+      "es": "Spaniolă",
+      "ro": "Română",
+      "ca": "Catalan",
+      "sq": "Armean"
+    }
+  }
+}

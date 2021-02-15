@@ -3,5 +3,16 @@ main {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  footer {
+    justify-self: flex-end;
+  }
+}
+
+.float-right {
+  position: absolute;
+  right: 1em;
+  top: 1em;
 }

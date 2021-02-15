@@ -1,0 +1,17 @@
+<div class="collapse-icon" (click)="isOpen = !isOpen" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+    <div class="hamburger hamburger--collapse" [class.is-active]="isOpen">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </div>
+</div>
+
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+    <div class="languages-container">
+        <a class="language" *ngFor="let language of languages; let i = index"
+            [class.active]="language.code === currentLanguage?.code" (click)="onLanguageChange($event, language)">
+            <b [translate]="'app.languages.'+language.code"></b>&nbsp;<flag-icon [country]="language.flag" squared>
+            </flag-icon>
+        </a>
+    </div>
+</ng-template>

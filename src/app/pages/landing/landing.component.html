@@ -1,16 +1,12 @@
 <div class="landing-container">
     <ng-container *ngIf="!isTargetHour(); else elseIsTargetHour">
-        <h1>
-            ¿Cuánto tiempo queda hasta la llegada de LA hora?
-        </h1>
+        <h1 [translate]="'app.landing.waiting-banner'"></h1>
         <app-flipdown-hour [hour]="diff"></app-flipdown-hour>
     </ng-container>
     <ng-template #elseIsTargetHour>
-        <h1>
-            Estate pendiente, ha llegado LA hora y puede que ocurra algo interesante.
-        </h1>
+        <h1 [translate]="'app.landing.ready-banner'"></h1>
         <div class="img">
-            <img src="https://media.giphy.com/media/kyWvn2RvshPs0OKeVF/source.gif" alt="villanelle">
+            <img src="/assets/img/moon.jpg" alt="Happy moon">
         </div>
     </ng-template>
 </div>
