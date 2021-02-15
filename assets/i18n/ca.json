@@ -1,0 +1,14 @@
+{
+  "app": {
+    "landing": {
+      "waiting-banner": "Quant de temps queda fins a l'arribada de l'hora?",
+      "ready-banner": "Estigues pendent, ha arribat la hora i pot ser que passi alguna cosa interessant."
+    },
+    "languages": {
+      "es": "Espanyol",
+      "ro": "Romanès",
+      "ca": "Català",
+      "sq": "Armeni"
+    }
+  }
+}
