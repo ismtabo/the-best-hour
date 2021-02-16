@@ -11,10 +11,15 @@
   }
 
   .img {
-    max-width: 80%;
+    max-width: 50%;
 
     img {
+      border-radius: 50%;
       width: 100%;
     }
+  }
+
+  audio {
+    width: 80%;
   }
 }

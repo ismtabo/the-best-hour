@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import * as moment from 'moment';
+import { Moment } from 'moment';
 
 @Component({
   templateUrl: './landing.component.html',
@@ -7,7 +8,7 @@ import * as moment from 'moment';
 })
 export class LandingComponent implements OnDestroy {
   private targetHour = { hour: 0, minutes: 13 };
-  private target: moment.Moment;
+  private target: Moment;
   diff: { hours: number; minutes: number; seconds: number };
   interval: number;
 
@@ -26,7 +27,7 @@ export class LandingComponent implements OnDestroy {
       .seconds(0);
 
     const current = moment();
-    if (this.target.isBefore(current) && !this.isTargetHour()) {
+    if (this.target.isBefore(current, 'minutes')) {
       this.target = this.target.add(1, 'day');
     }
   }
@@ -47,8 +48,7 @@ export class LandingComponent implements OnDestroy {
 
   isTargetHour() {
     const current = moment();
-    const seconds = this.target.diff(current, 'seconds');
-    return -59 <= seconds && seconds < 0;
+    return this.target.isSame(current, 'minute');
   }
 
   ngOnDestroy() {
