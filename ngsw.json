@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1613434006836,
+  "timestamp": 1613492168021,
   "index": "/the-best-hour/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/the-best-hour/favicon.ico",
         "/the-best-hour/index.html",
-        "/the-best-hour/main.b21fb8f846f43fb88758.js",
+        "/the-best-hour/main.868e72fd3e6626d886b6.js",
         "/the-best-hour/manifest.webmanifest",
         "/the-best-hour/polyfills.a4021de53358bb0fec14.js",
         "/the-best-hour/runtime.e227d1a0e31cbccbf8ec.js",
-        "/the-best-hour/styles.0aa73cee639659ead1b2.css"
+        "/the-best-hour/styles.00f02bcf5377a2a113f0.css"
       ],
       "patterns": []
     },
@@ -58,6 +58,7 @@
         "/the-best-hour/assets/icons/icon-128x128.png",
         "/the-best-hour/assets/icons/icon-144x144.png",
         "/the-best-hour/assets/icons/icon-16x16.png",
+        "/the-best-hour/assets/icons/icon-192x192.png",
         "/the-best-hour/assets/icons/icon-256x256.png",
         "/the-best-hour/assets/icons/icon-32x32.png",
         "/the-best-hour/assets/icons/icon-48x48.png",
@@ -604,6 +605,7 @@
     "/the-best-hour/assets/icons/icon-128x128.png": "0ab21670e6b0831cd367da33f47148676c1946a2",
     "/the-best-hour/assets/icons/icon-144x144.png": "f5598f6ec2505428914359d74a855e958e5a6391",
     "/the-best-hour/assets/icons/icon-16x16.png": "bfe7d3a4db6168e2ae940c06c6fba07eebf3f572",
+    "/the-best-hour/assets/icons/icon-192x192.png": "682f70b0a143dd9353ac29610ab5533b63fcf20a",
     "/the-best-hour/assets/icons/icon-256x256.png": "83741cb108b25a1461238244c08680ad91ea0382",
     "/the-best-hour/assets/icons/icon-32x32.png": "ec4f481af4fe67f93d784f21d367fb15cc94e74e",
     "/the-best-hour/assets/icons/icon-48x48.png": "d72399e796266f565f9bb8e2319a862db79853ce",
@@ -814,7 +816,7 @@
     "/the-best-hour/im.d637f63b68f97839a27b.svg": "78e5ea82f07f88f224f339b485af07bc44c583a3",
     "/the-best-hour/in.e5926cb75dcbb15638da.svg": "50e700ea860843e9996ebf98923925904e0cf1a4",
     "/the-best-hour/in.e626d1bb4e16e732e1dd.svg": "8227e6a26db90382b3b07a416a49d995b35f994e",
-    "/the-best-hour/index.html": "5f63e830cc8e20367d47d60f9b38ac9a5044101a",
+    "/the-best-hour/index.html": "05f9ddad5c52a08451d6090018169389485cb8fc",
     "/the-best-hour/io.c32d7f9e59460fb90af6.svg": "cbcd340414b4ec629dfae1c6ac184c69a3a6c089",
     "/the-best-hour/io.e31ca9aa9209d9b76a0b.svg": "3e5ea171a8a04b83f64dd1d534a524ea9cff964f",
     "/the-best-hour/iq.5cd51d2bbb7385580434.svg": "f3a6b6b79968ede16e095f2e0709104213d90b66",
@@ -879,7 +881,7 @@
     "/the-best-hour/ly.9d867c1b9d3b76652858.svg": "cc4d78c875d1a949df98c50bd6fdd776353faf19",
     "/the-best-hour/ma.363a4f79da72a6e74be0.svg": "da26c04d00847dd4414bc6c8f6c353bbf2ad4da2",
     "/the-best-hour/ma.3b79aff17ae55b760333.svg": "2b29e5febaeaf669731112b60de0f88d07b88e1b",
-    "/the-best-hour/main.b21fb8f846f43fb88758.js": "f46d55f82174cf030aa405663d7daff397885899",
+    "/the-best-hour/main.868e72fd3e6626d886b6.js": "3fa2d36e217c6eb8b133345cc5e382bcaf840d80",
     "/the-best-hour/manifest.webmanifest": "f1ef2f738ef70674d043189ad70d9f7d496e6763",
     "/the-best-hour/mc.082fc1558b4cf726b613.svg": "b57b9153c3ad7b91578b2a8ce2ba4ebf18ab5169",
     "/the-best-hour/mc.a2634c60fa92f9ff20f0.svg": "e2ef27b57936e4ac537351cbda007cfdb04b08b4",
@@ -1027,7 +1029,7 @@
     "/the-best-hour/ss.e4bf9bb42bd5d25190fe.svg": "6d5a79093e1a91ef49bf3cce120446a69385d887",
     "/the-best-hour/st.342a4d3c791c89ec3103.svg": "0b1df5a475a31363140f5f9cccef754c116f8cde",
     "/the-best-hour/st.72697a87cfc011963be4.svg": "c8bcfe705feaad5a098f13e2366318e4b8ed26b4",
-    "/the-best-hour/styles.0aa73cee639659ead1b2.css": "f6aa2de8848d602f4ebf948486b52742375e73ba",
+    "/the-best-hour/styles.00f02bcf5377a2a113f0.css": "c1ed241c0b97d45d9f54d02011ad76b3f0ff90a1",
     "/the-best-hour/sv.3bb132d79aef68d7fe41.svg": "1009839160eb5263452b87123785850fedddb04f",
     "/the-best-hour/sv.f4b3314001ea3a7cf1d0.svg": "2439582e8af2973b2afa106babae11b2112080e0",
     "/the-best-hour/sx.aafb13f61b6688f41a14.svg": "bcd5bda025da36a1776e53628728cd10086cd514",
