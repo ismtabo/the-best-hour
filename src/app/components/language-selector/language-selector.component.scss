@@ -3,6 +3,7 @@
 }
 
 ::ng-deep .languages-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -13,12 +14,12 @@
   padding: 0.5em;
 
   .language {
-    font-family: "Courier New", Courier, monospace;
     height: 4ex;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     cursor: pointer;
 
     &.active {
