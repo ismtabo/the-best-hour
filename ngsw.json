@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1613495494832,
+  "timestamp": 1613580484783,
   "index": "/the-best-hour/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/the-best-hour/favicon.ico",
         "/the-best-hour/index.html",
-        "/the-best-hour/main.98926645be35192eee97.js",
+        "/the-best-hour/main.d4947d1502b29f8b2c6c.js",
         "/the-best-hour/manifest.webmanifest",
         "/the-best-hour/polyfills.a4021de53358bb0fec14.js",
         "/the-best-hour/runtime.e227d1a0e31cbccbf8ec.js",
-        "/the-best-hour/styles.00f02bcf5377a2a113f0.css"
+        "/the-best-hour/styles.8ec4a7557e7ec7da4ebe.css"
       ],
       "patterns": []
     },
@@ -818,7 +818,7 @@
     "/the-best-hour/im.d637f63b68f97839a27b.svg": "78e5ea82f07f88f224f339b485af07bc44c583a3",
     "/the-best-hour/in.e5926cb75dcbb15638da.svg": "50e700ea860843e9996ebf98923925904e0cf1a4",
     "/the-best-hour/in.e626d1bb4e16e732e1dd.svg": "8227e6a26db90382b3b07a416a49d995b35f994e",
-    "/the-best-hour/index.html": "3275477891fe5f6bcf94361d197a10c27b8c893f",
+    "/the-best-hour/index.html": "e192178b33169a9bfe789904d07f621646e51304",
     "/the-best-hour/io.c32d7f9e59460fb90af6.svg": "cbcd340414b4ec629dfae1c6ac184c69a3a6c089",
     "/the-best-hour/io.e31ca9aa9209d9b76a0b.svg": "3e5ea171a8a04b83f64dd1d534a524ea9cff964f",
     "/the-best-hour/iq.5cd51d2bbb7385580434.svg": "f3a6b6b79968ede16e095f2e0709104213d90b66",
@@ -883,7 +883,7 @@
     "/the-best-hour/ly.9d867c1b9d3b76652858.svg": "cc4d78c875d1a949df98c50bd6fdd776353faf19",
     "/the-best-hour/ma.363a4f79da72a6e74be0.svg": "da26c04d00847dd4414bc6c8f6c353bbf2ad4da2",
     "/the-best-hour/ma.3b79aff17ae55b760333.svg": "2b29e5febaeaf669731112b60de0f88d07b88e1b",
-    "/the-best-hour/main.98926645be35192eee97.js": "8150168ff7f057a2da041245a1c99bc22ee6e9e1",
+    "/the-best-hour/main.d4947d1502b29f8b2c6c.js": "f72061f5e2ff84d05d476eeb166cb1c938cb9f8e",
     "/the-best-hour/manifest.webmanifest": "f1ef2f738ef70674d043189ad70d9f7d496e6763",
     "/the-best-hour/mc.082fc1558b4cf726b613.svg": "b57b9153c3ad7b91578b2a8ce2ba4ebf18ab5169",
     "/the-best-hour/mc.a2634c60fa92f9ff20f0.svg": "e2ef27b57936e4ac537351cbda007cfdb04b08b4",
@@ -1031,7 +1031,7 @@
     "/the-best-hour/ss.e4bf9bb42bd5d25190fe.svg": "6d5a79093e1a91ef49bf3cce120446a69385d887",
     "/the-best-hour/st.342a4d3c791c89ec3103.svg": "0b1df5a475a31363140f5f9cccef754c116f8cde",
     "/the-best-hour/st.72697a87cfc011963be4.svg": "c8bcfe705feaad5a098f13e2366318e4b8ed26b4",
-    "/the-best-hour/styles.00f02bcf5377a2a113f0.css": "c1ed241c0b97d45d9f54d02011ad76b3f0ff90a1",
+    "/the-best-hour/styles.8ec4a7557e7ec7da4ebe.css": "08b4bedb6a6d34d9f328671bd3b36738910e4641",
     "/the-best-hour/sv.3bb132d79aef68d7fe41.svg": "1009839160eb5263452b87123785850fedddb04f",
     "/the-best-hour/sv.f4b3314001ea3a7cf1d0.svg": "2439582e8af2973b2afa106babae11b2112080e0",
     "/the-best-hour/sx.aafb13f61b6688f41a14.svg": "bcd5bda025da36a1776e53628728cd10086cd514",
