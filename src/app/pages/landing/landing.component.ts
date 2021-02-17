@@ -1,13 +1,14 @@
 import { Component, OnDestroy } from '@angular/core';
 import * as moment from 'moment';
 import { Moment } from 'moment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnDestroy {
-  private targetHour = { hour: 0, minutes: 13 };
+  private targetHour = environment.targetHour;
   private target: Moment;
   diff: { hours: number; minutes: number; seconds: number };
   interval: number;

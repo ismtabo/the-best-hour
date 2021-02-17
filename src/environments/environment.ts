@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  targetHour: { hour: 0, minutes: 13 },
 };
 
 /*
