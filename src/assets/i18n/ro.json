@@ -3,10 +3,7 @@
     "landing": {
       "waiting-banner": "Cât timp mai rămâne până la sosirea orei  {{hour}}?",
       "ready-banner": "Rămâneți la curent, a sosit timpul și se poate întâmpla ceva interesant.",
-      "waiting-the-hour-banner": "Cât timp mai rămâne până la sosirea orei?",
-      "tour": {
-        "step-1": "Acum aplicația permite adăugarea de ore"
-      }
+      "waiting-the-hour-banner": "Cât timp mai rămâne până la sosirea orei?"
     },
     "languages": {
       "es": "Spaniolă",
@@ -16,11 +13,7 @@
     },
     "hours": {
       "title": "Ore",
-      "empty": "Nu există ore suplimentare. Încercați să adăugați o oră nouă.",
-      "tour": {
-        "step-1": "Selectați o oră",
-        "step-2": "Apăsați butonul pentru al adăuga la listă"
-      }
+      "empty": "Nu există ore suplimentare. Încercați să adăugați o oră nouă."
     }
   }
 }

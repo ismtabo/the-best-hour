@@ -3,10 +3,7 @@
     "landing": {
       "waiting-banner": "¿Cuánto tiempo queda hasta la llegada de la hora {{hour}}?",
       "ready-banner": " Estate pendiente, ha llegado LA hora y puede que ocurra algo interesante.",
-      "waiting-the-hour-banner": "¿Cuánto tiempo queda hasta la llegada de LA hora?",
-      "tour": {
-        "step-1": "Ahora la aplicación permite añadir horas"
-      }
+      "waiting-the-hour-banner": "¿Cuánto tiempo queda hasta la llegada de LA hora?"
     },
     "languages": {
       "es": "Español",
@@ -16,11 +13,7 @@
     },
     "hours": {
       "title": "Horas",
-      "empty": "No hay ninguna hora extra. Pruebe a añadir una hora nueva",
-      "tour": {
-        "step-1": "Selecciona una hora",
-        "step-2": "Pulsa el botón para añadirla a la lista"
-      }
+      "empty": "No hay ninguna hora extra. Pruebe a añadir una hora nueva"
     }
   }
 }
