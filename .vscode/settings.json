@@ -3,5 +3,6 @@
     "i18n-ally.localesPaths": [
         "src/assets/i18n"
     ],
-    "ngx-translate-manager.locale": "**/src/assets/i18n/ca.json"
+    "ngx-translate-manager.locale": "**/src/assets/i18n/ca.json",
+    "i18n-ally.keystyle": "nested"
 }

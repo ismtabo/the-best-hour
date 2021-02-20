@@ -1,0 +1,83 @@
+:host {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .container {
+    height: 100%;
+    padding: 10%;
+    display: grid;
+    grid-template-rows: min-content 70% min-content;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    .hours-list {
+      height: 100%;
+      overflow: auto;
+      font-size: 1.5em;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+
+      &::-webkit-scrollbar {
+        width: 0.25em; /* width of the entire scrollbar */
+      }
+
+      &::-webkit-scrollbar-track {
+        display: none;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 0.125em;
+        background-color: var(--middle-blue); /* color of the scroll thumb */
+      }
+
+      .hours-empty {
+        text-align: center;
+      }
+    }
+
+    .hours-add {
+      width: 100%;
+      justify-self: flex-end;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 2ex;
+    }
+  }
+}
+
+.button {
+  background: none;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color: var(--ming);
+  font-size: 1.5em;
+
+  &:disabled {
+    color: var(--middle-blue);
+  }
+}
+
+.toggle-link {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 2em;
+
+  a:visited {
+    color: unset;
+  }
+}

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import * as moment from 'moment';
 import { Language } from './language';
 import { languages } from './languages';
 
@@ -25,5 +26,6 @@ export class LanguageSelectorComponent implements OnInit {
 
   onLanguageChange(event: Event, language: Language) {
     this.translate.use(language.code);
+    moment().locale(language.code);
   }
 }

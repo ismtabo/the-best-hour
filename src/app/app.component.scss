@@ -1,25 +1,30 @@
-main {
+:host {
   height: 100%;
   width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
   overflow: hidden;
-}
 
-.float-right {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-}
+  main {
+    height: calc(100% - 10vh);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: hidden;
+  }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
+  .float-right {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 10vh;
+    line-height: 10vh;
+    text-align: center;
+  }
 }

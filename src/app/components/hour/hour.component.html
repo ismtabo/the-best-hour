@@ -1,0 +1,14 @@
+<span>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <ng-container *ngIf="!editable; else elseEditable">
+            <span>{{hour.hour | number: '2.0-0'}}</span>:<span>{{hour.minutes | number: '2.0-0'}}</span>&nbsp;<span
+                class="mdi mdi-pencil" (click)="this.enableEdition()">&nbsp;</span><span class="mdi mdi-trash-can"
+                (click)="this.removeHour()"></span>
+        </ng-container>
+        <ng-template #elseEditable>
+            <input type="time" name="hour" id="hour" [ngModel]="hour | hour | date: 'HH:mm'" required>
+            <button class="btn" [disabled]="form.invalid" type="submit"><span class="mdi mdi-check"></span></button>
+            <button class="btn" (click)="disableEdition()"><span class="mdi mdi-cancel"></span></button>
+        </ng-template>
+    </form>
+</span>

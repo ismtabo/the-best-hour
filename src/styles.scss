@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "reset-css";
 @import "~@angular/cdk/overlay-prebuilt.css";
+@import "~@mdi/font";
 
 // Source: https://www.npmjs.com/package/hamburgers#customization
 $hamburger-layer-color: #417882ff;
@@ -9,9 +10,15 @@ $hamburger-active-layer-color: $hamburger-layer-color;
 
 @import "~hamburgers/_sass/hamburgers/hamburgers.scss";
 
-body {
+html {
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  width: 100%;
   background-color: var(--sky-blue-crayola);
   color: var(--ming);
   font-family: "Roboto", sans-serif;
