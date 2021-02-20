@@ -4,7 +4,6 @@ import {
   Component,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { GuidedTour } from 'ngx-guided-tour';
 import { Observable } from 'rxjs';
 import { Hour } from '../../shared/models/hour.model';
 import { HoursService } from '../../shared/services/hours.service';
@@ -17,7 +16,6 @@ import { HoursService } from '../../shared/services/hours.service';
 })
 export class HoursListComponent {
   hours$: Observable<Hour[]>;
-  public countdownTour: GuidedTour;
 
   constructor(
     private hoursService: HoursService,

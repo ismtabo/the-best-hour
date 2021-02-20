@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { Moment } from 'moment';
-import { GuidedTour } from 'ngx-guided-tour';
 import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TheHourComponentComponent } from '../../components/the-hour-component/the-hour-component.component';
@@ -20,7 +19,6 @@ export class CountdownComponent implements OnInit, OnDestroy {
   interval: number;
   TheHourComponentComponent = TheHourComponentComponent;
   subscription: Subscription;
-  public countdownTour: GuidedTour;
 
   constructor(
     private hourService: HoursService,
