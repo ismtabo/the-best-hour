@@ -12,15 +12,11 @@ import { HoursService } from '../../shared/services/hours.service';
   selector: 'app-hours-list',
   templateUrl: './hours-list.component.html',
   styleUrls: ['./hours-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HoursListComponent {
   hours$: Observable<Hour[]>;
 
-  constructor(
-    private hoursService: HoursService,
-    private cd: ChangeDetectorRef
-  ) {
+  constructor(private hoursService: HoursService) {
     this.hours$ = this.hoursService.hours$;
   }
 
@@ -31,7 +27,6 @@ export class HoursListComponent {
       const [hour, minutes] = rawHour.split(':', 2).map((x) => parseInt(x, 10));
       await this.hoursService.addHour({ hour, minutes });
       form.reset();
-      this.cd.detectChanges();
     }
   }
 }

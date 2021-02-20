@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { Moment } from 'moment';
 import { Subscription } from 'rxjs';
@@ -20,10 +20,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
   TheHourComponentComponent = TheHourComponentComponent;
   subscription: Subscription;
 
-  constructor(
-    private hourService: HoursService,
-    private cd: ChangeDetectorRef
-  ) {
+  constructor(private hourService: HoursService) {
     this.subscription = new Subscription();
   }
 
@@ -68,8 +65,6 @@ export class CountdownComponent implements OnInit, OnDestroy {
       this.targetHour = await this.hourService.getTargetHour();
       this.updateTarget();
     }
-
-    this.cd.detectChanges();
   }
 
   isTargetHour() {
