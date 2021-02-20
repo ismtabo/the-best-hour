@@ -1,14 +1,19 @@
 {
   "app": {
     "landing": {
-      "waiting-banner": "¿Cuánto tiempo queda hasta la llegada de la hora?",
-      "ready-banner": " Estate pendiente, ha llegado LA hora y puede que ocurra algo interesante."
+      "waiting-banner": "¿Cuánto tiempo queda hasta la llegada de la hora {{hour}}?",
+      "ready-banner": " Estate pendiente, ha llegado LA hora y puede que ocurra algo interesante.",
+      "waiting-the-hour-banner": "¿Cuánto tiempo queda hasta la llegada de LA hora?"
     },
     "languages": {
       "es": "Español",
       "ro": "Rumano",
       "ca": "Catalán",
       "sq": "Armenio"
+    },
+    "hours": {
+      "title": "Horas",
+      "empty": "No hay ninguna hora extra. Pruebe a añadir una hora nueva"
     }
   }
 }
