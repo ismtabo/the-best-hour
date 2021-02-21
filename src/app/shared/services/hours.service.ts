@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { take, tap } from 'rxjs/operators';
+import { shareReplay, take, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Hour } from '../../shared/models/hour.model';
 
@@ -20,15 +20,14 @@ export class HoursService {
     this.targetHour$ = this.targetHourSubject.asObservable();
 
     this.hoursSubject = new BehaviorSubject<Hour[]>([]);
-    this.hours$ = this.hoursSubject
-      .asObservable()
-      .pipe(
-        tap((hours) =>
-          this.calculateTargetHour(hours).then((hour) =>
-            this.targetHourSubject.next(hour)
-          )
+    this.hours$ = this.hoursSubject.asObservable().pipe(
+      shareReplay(1),
+      tap((hours) =>
+        this.calculateTargetHour(hours).then((hour) =>
+          this.targetHourSubject.next(hour)
         )
-      );
+      )
+    );
 
     this.refreshHours();
   }

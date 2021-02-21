@@ -12,7 +12,7 @@ import { HoursService } from '../../shared/services/hours.service';
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.scss'],
 })
-export class CountdownComponent implements OnInit, OnDestroy {
+export class CountdownComponent implements OnDestroy {
   private targetHour: Hour;
   target: Moment;
   diff = { hours: 0, minutes: 0, seconds: 0 };
@@ -22,18 +22,17 @@ export class CountdownComponent implements OnInit, OnDestroy {
 
   constructor(private hourService: HoursService) {
     this.subscription = new Subscription();
-  }
-
-  ngOnInit(): void {
     this.subscription.add(
       this.hourService.targetHour$.subscribe((hour) =>
         this.initializeTarget(hour)
       )
     );
+
+    this.initializeTarget();
   }
 
-  private async initializeTarget(hour: Hour) {
-    this.targetHour = hour;
+  private async initializeTarget(hour?: Hour) {
+    this.targetHour = hour || (await this.hourService.getTargetHour());
     this.updateTarget();
     this.updateDate();
     this.interval = setInterval(() => this.updateDate(), 1000);
