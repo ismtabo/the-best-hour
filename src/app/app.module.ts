@@ -1,11 +1,15 @@
 import { OverlayModule } from '@angular/cdk/overlay';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { OfflineModule } from '@ngx-pwa/offline';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import * as Hammer from 'hammerjs';
@@ -48,6 +52,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     SortHoursPipe,
   ],
   imports: [
+    // configure the imports
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -55,7 +60,6 @@ export class MyHammerConfig extends HammerGestureConfig {
     }),
     RouterModule,
     JSBAngularFlipClockModule,
-    // configure the imports
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -70,6 +74,10 @@ export class MyHammerConfig extends HammerGestureConfig {
     NgxIndexedDBModule.forRoot(dbConfig),
     FormsModule,
     ClickOutsideModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule.enablePersistence(), // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    OfflineModule.forRoot({ guardsRedirect: false }),
   ],
   bootstrap: [AppComponent],
 })

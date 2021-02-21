@@ -162,6 +162,10 @@
               "serverTarget": "the-best-hour:server:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

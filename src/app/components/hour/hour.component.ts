@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Hour } from 'src/app/shared/models/hour.model';
-import { HoursService } from '../../shared/services/hours.service';
+import { HoursService } from '../../shared/services/hours/hours.service';
 
 @Component({
   selector: 'app-hour',

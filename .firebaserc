@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "test-firebase-ismtabo": {
+      "hosting": {
+        "the-best-hour": [
+          "test-firebase-ismtabo"
+        ]
+      }
+    }
+  }
+}

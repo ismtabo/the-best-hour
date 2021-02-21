@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TheHourComponentComponent } from '../../components/the-hour-component/the-hour-component.component';
 import { Hour } from '../../shared/models/hour.model';
-import { HoursService } from '../../shared/services/hours.service';
+import { HoursService } from '../../shared/services/hours/hours.service';
 
 @Component({
   selector: 'app-countdown',
@@ -62,8 +62,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
     }
 
     if (this.target.isBefore(current, 'minutes')) {
-      this.targetHour = await this.hourService.getTargetHour();
-      this.updateTarget();
+      this.hourService.updateTargetHour();
     }
   }
 
