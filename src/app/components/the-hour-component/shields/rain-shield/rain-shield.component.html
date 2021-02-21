@@ -1,0 +1,63 @@
+<div class="container">
+  <audio src="assets/sound/rain-06.mp3" autoplay></audio>
+  <div class="rain front-row">
+    <div class="drop" *ngFor="let drop of drops" style="{{
+        'left: ' +
+          drop.increment +
+          '%; bottom: ' +
+          (drop.randoFiver + drop.randoFiver - 1 + 100) +
+          '%; animation-delay: 0.' +
+          drop.randoHundo +
+          's; animation-duration: 0.5' +
+          drop.randoHundo +
+          's;'
+      }}">
+      <div class="stem" style="{{
+          'animation-delay: 0.' +
+            drop.randoHundo +
+            's; animation-duration: 0.5' +
+            drop.randoHundo +
+            's;'
+        }}"></div>
+      <div class="splat" style="{{
+          'animation-delay: 0.' +
+            drop.randoHundo +
+            's; animation-duration: 0.5' +
+            drop.randoHundo +
+            's;'
+        }}"></div>
+    </div>
+  </div>
+  <div class="images">
+    <img class="bench" src="assets/img/bench.png" alt="bench">
+    <img class="umbrella" src="assets/img/umbrella.png" alt="umbrella">
+  </div>
+  <div class="rain back-row">
+    <div class="drop" *ngFor="let drop of drops" style="{{
+      'right: ' +
+        drop.increment +
+        '%; bottom: ' +
+        (drop.randoFiver + drop.randoFiver - 1 + 100) +
+        '%; animation-delay: 0.' +
+        drop.randoHundo +
+        's; animation-duration: 0.5' +
+        drop.randoHundo +
+        's;'
+    }}">
+      <div class="stem" style="{{
+        'animation-delay: 0.' +
+          drop.randoHundo +
+          's; animation-duration: 0.5' +
+          drop.randoHundo +
+          's;'
+      }}"></div>
+      <div class="splat" style="{{
+        'animation-delay: 0.' +
+          drop.randoHundo +
+          's; animation-duration: 0.5' +
+          drop.randoHundo +
+          's;'
+      }}"></div>
+    </div>
+  </div>
+</div>

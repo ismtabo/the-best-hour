@@ -1,19 +1,19 @@
-<div class="toggle-link">
-    <a routerLink="/"><span class="mdi mdi-clock"></span></a>
+<div class="container">
+  <h2 [translate]="'app.hours.title'"></h2>
+  <div class="hours-list">
+    <div class="hour" *ngFor="let hour of hours$ | async | sortHours">
+      <app-hour [hour]="hour"></app-hour>
+    </div>
+    <div class="hours-empty" [translate]="'app.hours.empty'" *ngIf="!(((hours$ | async) || []).length)"></div>
+  </div>
+  <form #form="ngForm" (ngSubmit)="addHour(form)">
+    <div class="hours-add">
+      <input required ngModel type="time" id="hour" name="hour">
+      <button [disabled]="form.invalid" class="button"><span class="mdi mdi-plus"></span></button>
+    </div>
+  </form>
 </div>
 
-<div class="container">
-    <h2 [translate]="'app.hours.title'"></h2>
-    <div class="hours-list">
-        <div class="hour" *ngFor="let hour of hours$ | async | sortHours">
-            <app-hour [hour]="hour"></app-hour>
-        </div>
-        <div class="hours-empty" [translate]="'app.hours.empty'" *ngIf="!(((hours$ | async) || []).length)"></div>
-    </div>
-    <form #form="ngForm" (ngSubmit)="addHour(form)">
-        <div class="hours-add">
-            <input required ngModel type="time" id="hour" name="hour">
-            <button [disabled]="form.invalid" class="button"><span class="mdi mdi-plus"></span></button>
-        </div>
-    </form>
+<div class="toggle-link">
+  <a routerLink="/"><span class="mdi mdi-clock"></span></a>
 </div>
