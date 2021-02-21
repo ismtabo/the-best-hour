@@ -21,6 +21,8 @@ import { FlipdownHourComponent } from './components/flipdown-hour/flipdown-hour.
 import { HourComponent } from './components/hour/hour.component';
 import { HourPipe } from './components/hour/hour.pipe';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
+import { NightShieldComponent } from './components/the-hour-component/shields/night-shield/night-shield.component';
+import { RainShieldComponent } from './components/the-hour-component/shields/rain-shield/rain-shield.component';
 import { TheHourComponentComponent } from './components/the-hour-component/the-hour-component.component';
 import { CountdownComponent } from './pages/countdown/countdown.component';
 import { HoursListComponent } from './pages/hours-list/hours-list.component';
@@ -46,6 +48,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     HourComponent,
     HourPipe,
     SortHoursPipe,
+    NightShieldComponent,
+    RainShieldComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
