@@ -14,6 +14,10 @@
     "hours": {
       "title": "Hores",
       "empty": "No hi ha cap hora extra. Pruebe afegir una hora nova."
+    },
+    "config": {
+      "title": "Configuració",
+      "language": "Idioma"
     }
   }
 }

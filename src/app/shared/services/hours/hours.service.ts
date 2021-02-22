@@ -1,33 +1,47 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as moment from 'moment';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Hour } from '../../models/hour.model';
 import { HoursProvider } from './providers/hour-provider.model';
 import { HoursIndexedDbProviderService } from './providers/hours-indexed-db-provider.service';
+import { HoursFirebaseProviderService } from './providers/hours-indexed-firebase-provider.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class HoursService {
+export class HoursService implements OnDestroy {
   hours$: Observable<Hour[]>;
   private targetHourSubject: BehaviorSubject<Hour>;
   targetHour$: Observable<Hour>;
   provider: HoursProvider;
+  subscription: Subscription;
 
   constructor(
     private hoursIndexedDB: HoursIndexedDbProviderService,
+    private hoursFirestore: HoursFirebaseProviderService,
     private auth: AngularFireAuth
   ) {
-    this.provider = hoursIndexedDB;
+    this.targetHourSubject = new BehaviorSubject<Hour>(environment.targetHour);
+    this.targetHour$ = this.targetHourSubject.asObservable();
+
+    this.subscription = new Subscription();
+    this.subscription.add(
+      this.auth.authState.subscribe((user) => {
+        this.changeProvider(user != null);
+      })
+    );
+    this.changeProvider(auth.currentUser != null);
+  }
+
+  private async changeProvider(authenticated: boolean) {
+    this.provider = authenticated ? this.hoursFirestore : this.hoursIndexedDB;
+    await this.updateTargetHour();
     this.hours$ = this.provider.hours$.pipe(
       tap((hours) => this.updateTargetHour(hours))
     );
-
-    this.targetHourSubject = new BehaviorSubject<Hour>(environment.targetHour);
-    this.targetHour$ = this.targetHourSubject.asObservable();
   }
 
   getHours(): Promise<Hour[]> {
@@ -69,5 +83,11 @@ export class HoursService {
     currentHours.sort((a, b) => diff(a) - diff(b));
 
     this.targetHourSubject.next(currentHours[0]);
+  }
+
+  ngOnDestroy() {
+    if (this.subscription instanceof Subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

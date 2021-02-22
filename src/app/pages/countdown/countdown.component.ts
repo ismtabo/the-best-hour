@@ -8,7 +8,6 @@ import { Hour } from '../../shared/models/hour.model';
 import { HoursService } from '../../shared/services/hours/hours.service';
 
 @Component({
-  selector: 'app-countdown',
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.scss'],
 })

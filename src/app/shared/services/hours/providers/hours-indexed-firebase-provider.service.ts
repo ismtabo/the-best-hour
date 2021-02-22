@@ -4,20 +4,28 @@ import {
   AngularFirestoreCollection,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
+import { Hour } from 'src/app/shared/models/hour.model';
 import { HoursProvider, FirebaseHour } from './hour-provider.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class HoursIndexedFirebaseProviderService
+export class HoursFirebaseProviderService
   implements HoursProvider<FirebaseHour> {
   hours$: Observable<FirebaseHour[]>;
   private collection: AngularFirestoreCollection<FirebaseHour>;
 
   constructor(private firestores: AngularFirestore) {
     this.collection = this.firestores.collection<FirebaseHour>('hours');
-    this.hours$ = this.collection.valueChanges();
+    this.hours$ = this.collection.snapshotChanges().pipe(
+      map((hours) =>
+        hours.map(({ payload: { doc: hourDocument } }) => ({
+          id: hourDocument.id,
+          ...hourDocument.data(),
+        }))
+      )
+    );
   }
 
   async getHours(): Promise<FirebaseHour[]> {

@@ -1,17 +1,15 @@
-<div class="collapse-icon" (click)="isOpen = !isOpen" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
-    <div class="hamburger hamburger--collapse" [class.is-active]="isOpen">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
-    </div>
+<div class="p-field p-col-12 p-md-12">
+  <span class="p-float-label">
+    <p-dropdown inputId="language" name="language" [options]="languages" optionValue="code"
+      [ngModel]="currentLanguage.code" (ngModelChange)="onLanguageChange($event)">
+      <ng-template pTemplate="selectedItem">
+        <div translate="app.languages.{{currentLanguage.code}}"></div>
+      </ng-template>
+      <ng-template let-language pTemplate="item">
+        <b translate="app.languages.{{language.code}}"></b>&nbsp;<flag-icon [country]="language.flag" squared>
+        </flag-icon>
+      </ng-template>
+    </p-dropdown>
+    <label for="language">{{'app.config.language'|translate}}</label>
+  </span>
 </div>
-
-<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
-    <div class="languages-container">
-        <a class="language" *ngFor="let language of languages; let i = index"
-            [class.active]="language.code === currentLanguage?.code" (click)="onLanguageChange($event, language)">
-            <b [translate]="'app.languages.'+language.code"></b>&nbsp;<flag-icon [country]="language.flag" squared>
-            </flag-icon>
-        </a>
-    </div>
-</ng-template>

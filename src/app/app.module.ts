@@ -5,18 +5,20 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { OfflineModule } from '@ngx-pwa/offline';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import * as Hammer from 'hammerjs';
 import { JSBAngularFlipClockModule } from 'jsb-angular-flip-clock';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { CookieService } from 'ngx-cookie-service';
 import { NgxFlagIconCssModule } from 'ngx-flag-icon-css';
 import { NgxIndexedDBModule } from 'ngx-indexed-db';
+import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,17 +30,11 @@ import { LanguageSelectorComponent } from './components/language-selector/langua
 import { NightShieldComponent } from './components/the-hour-component/shields/night-shield/night-shield.component';
 import { RainShieldComponent } from './components/the-hour-component/shields/rain-shield/rain-shield.component';
 import { TheHourComponentComponent } from './components/the-hour-component/the-hour-component.component';
+import { ConfigComponent } from './pages/config/config.component';
 import { CountdownComponent } from './pages/countdown/countdown.component';
 import { HoursListComponent } from './pages/hours-list/hours-list.component';
 import { SortHoursPipe } from './pages/hours-list/sort-hours.pipe';
 import { dbConfig } from './shared/database/config';
-
-// required for HammerJS events
-export class MyHammerConfig extends HammerGestureConfig {
-  overrides = {
-    swipe: { direction: Hammer.DIRECTION_ALL },
-  };
-}
 
 @NgModule({
   declarations: [
@@ -54,6 +50,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     SortHoursPipe,
     NightShieldComponent,
     RainShieldComponent,
+    ConfigComponent,
   ],
   imports: [
     // configure the imports
@@ -82,8 +79,11 @@ export class MyHammerConfig extends HammerGestureConfig {
     AngularFirestoreModule.enablePersistence(), // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     OfflineModule.forRoot({ guardsRedirect: false }),
+    DropdownModule,
+    ButtonModule,
   ],
   bootstrap: [AppComponent],
+  providers: [CookieService],
 })
 export class AppModule {}
 

@@ -1,0 +1,34 @@
+:host {
+  height: 100%;
+  width: 100%;
+
+  .container {
+    height: calc(100% - 2em);
+    width: 100%;
+    margin-top: 2em;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: auto 1fr;
+    gap: 1em;
+
+    h1 {
+      font-size: 2em;
+    }
+
+    .configuration {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1em;
+    }
+  }
+
+  .home-link {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    font-size: 2em;
+  }
+}

@@ -5,7 +5,6 @@ import { Hour } from '../../shared/models/hour.model';
 import { HoursService } from '../../shared/services/hours/hours.service';
 
 @Component({
-  selector: 'app-hours-list',
   templateUrl: './hours-list.component.html',
   styleUrls: ['./hours-list.component.scss'],
 })

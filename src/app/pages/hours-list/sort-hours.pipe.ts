@@ -8,6 +8,10 @@ import { Hour } from 'src/app/shared/models/hour.model';
 })
 export class SortHoursPipe implements PipeTransform {
   transform(value: Hour[]): unknown {
+    if (!Array.isArray(value)) {
+      return [];
+    }
+
     return value.sort((a, b) =>
       this.toMoment(a).isBefore(this.toMoment(b)) ? -1 : 1
     );

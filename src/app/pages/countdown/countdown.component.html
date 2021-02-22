@@ -1,19 +1,23 @@
 <div class="container">
-    <ng-container *ngIf="!isTargetHour()">
-        <div class="message">
-            <app-flipdown-hour [hour]="diff"></app-flipdown-hour>
-            <ng-container *ngIf="isTheHour(); else elseNotTheHour">
-                <h1 [translate]="'app.landing.waiting-the-hour-banner'"></h1>
-            </ng-container>
-            <ng-template #elseNotTheHour>
-                <h1 [translate]="'app.landing.waiting-banner'" [translateParams]="{hour: target | date: 'HH:mm'}"></h1>
-            </ng-template>
-        </div>
-    </ng-container>
-    <ng-container *ngIf="isTargetHour()" [ngComponentOutlet]="TheHourComponentComponent">
-    </ng-container>
+  <ng-container *ngIf="!isTargetHour()">
+    <div class="message">
+      <app-flipdown-hour [hour]="diff"></app-flipdown-hour>
+      <ng-container *ngIf="isTheHour(); else elseNotTheHour">
+        <h1 [translate]="'app.landing.waiting-the-hour-banner'"></h1>
+      </ng-container>
+      <ng-template #elseNotTheHour>
+        <h1 [translate]="'app.landing.waiting-banner'" [translateParams]="{hour: target | date: 'HH:mm'}"></h1>
+      </ng-template>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isTargetHour()" [ngComponentOutlet]="TheHourComponentComponent">
+  </ng-container>
 </div>
 
 <div class="toggle-link">
-    <a routerLink="/hours"><span class="mdi mdi-account-clock"></span></a>
+  <a routerLink="/hours"><span class="mdi mdi-account-clock"></span></a>
+</div>
+
+<div class="float-right config-icon">
+  <span class="mdi mdi-account-circle-outline" routerLink="/config"></span>
 </div>

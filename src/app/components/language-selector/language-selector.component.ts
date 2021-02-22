@@ -1,8 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import * as moment from 'moment';
-import { Language } from './language';
-import { languages } from './languages';
+import { Locale } from 'src/app/shared/models/locale';
+import { UserConfigService } from '../../shared/services/user-config.service';
 
 @Component({
   selector: 'app-language-selector',
@@ -10,22 +9,23 @@ import { languages } from './languages';
   styleUrls: ['./language-selector.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LanguageSelectorComponent implements OnInit {
-  currentLanguage: Language;
-  languages = languages;
-  isOpen = false;
+export class LanguageSelectorComponent {
+  currentLanguage: Locale;
+  languages: Array<Locale | { label: string }>;
 
-  constructor(private translate: TranslateService) {
-    const currentCode = this.translate.currentLang;
-    this.currentLanguage = this.languages.find(
-      ({ code }) => code === currentCode
-    );
+  constructor(
+    private userConfig: UserConfigService,
+    private translate: TranslateService
+  ) {
+    this.languages = this.userConfig.getLanguages().map((locale) => ({
+      ...locale,
+      label: this.translate.instant('app.languages.' + locale.code),
+    }));
+    this.currentLanguage = this.userConfig.getLocale();
   }
 
-  ngOnInit(): void {}
-
-  onLanguageChange(event: Event, language: Language) {
-    this.translate.use(language.code);
-    moment().locale(language.code);
+  onLanguageChange(selectedCode: string) {
+    this.userConfig.setLocale(selectedCode);
+    this.currentLanguage = this.userConfig.getLocale();
   }
 }
