@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { BehaviorSubject, EMPTY, from, Observable } from 'rxjs';
-import { concatMap, concatMapTo, tap } from 'rxjs/operators';
+import { concatMap, concatMapTo, skip, tap } from 'rxjs/operators';
 import { HoursProvider, IndexedDbHour } from './hour-provider.model';
 
 @Injectable({
@@ -10,17 +10,24 @@ import { HoursProvider, IndexedDbHour } from './hour-provider.model';
 export class HoursIndexedDbProviderService
   implements HoursProvider<IndexedDbHour> {
   private hoursSubject: BehaviorSubject<IndexedDbHour[]>;
-  hours$: Observable<IndexedDbHour[]>;
+  get hours$(): Observable<IndexedDbHour[]> {
+    this.refreshHours();
+    return this.hourS;
+  }
+  private hourS: Observable<IndexedDbHour[]>;
 
   constructor(private dbService: NgxIndexedDBService) {
-    this.hoursSubject = new BehaviorSubject<IndexedDbHour[]>([]);
-    this.hours$ = this.hoursSubject.asObservable();
-
-    this.refreshHours();
+    this.initialize();
   }
 
-  private refreshHours() {
-    this.getHours().then((hours) => this.hoursSubject.next(hours));
+  private initialize() {
+    this.hoursSubject = new BehaviorSubject<IndexedDbHour[]>(null);
+    this.hourS = this.hoursSubject.asObservable().pipe(skip(1));
+  }
+
+  private async refreshHours() {
+    const hours = await this.getHours();
+    this.hoursSubject.next(hours);
   }
 
   getHours(): Promise<IndexedDbHour[]> {

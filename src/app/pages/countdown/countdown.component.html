@@ -19,5 +19,10 @@
 </div>
 
 <div class="float-right config-icon">
-  <span class="mdi mdi-account-circle-outline" routerLink="/config"></span>
+  <span class="user-badge" routerLink="/config">
+    <span *ngIf="!(auth.user|async)?.photoURL; else userBadge" class="mdi mdi-account-circle-outline"></span>
+    <ng-template #userBadge>
+      <img [src]="(auth.user|async)?.photoURL" alt="user image">
+    </ng-template>
+  </span>
 </div>

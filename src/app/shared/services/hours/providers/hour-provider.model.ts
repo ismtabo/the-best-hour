@@ -16,4 +16,6 @@ interface ProviderHour<T> extends Hour {
 
 export type IndexedDbHour = ProviderHour<number>;
 
-export type FirebaseHour = ProviderHour<string>;
+export interface FirebaseHour extends ProviderHour<string> {
+  uid: string;
+}

@@ -17,7 +17,9 @@
     },
     "config": {
       "title": "Configuración",
-      "language": "Idioma"
+      "language": "Idioma",
+      "login": "Inicia sesión con Google",
+      "logout": "Cierra sesión"
     }
   }
 }

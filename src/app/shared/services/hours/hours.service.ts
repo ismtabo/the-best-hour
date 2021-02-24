@@ -1,8 +1,9 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
 import * as moment from 'moment';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { from, Observable, Subscription } from 'rxjs';
+import { concatMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Hour } from '../../models/hour.model';
 import { HoursProvider } from './providers/hour-provider.model';
@@ -13,9 +14,10 @@ import { HoursFirebaseProviderService } from './providers/hours-indexed-firebase
   providedIn: 'root',
 })
 export class HoursService implements OnDestroy {
-  hours$: Observable<Hour[]>;
-  private targetHourSubject: BehaviorSubject<Hour>;
-  targetHour$: Observable<Hour>;
+  get hours$(): Observable<Hour[]> {
+    return this.provider.hours$;
+  }
+  target$: Observable<Hour>;
   provider: HoursProvider;
   subscription: Subscription;
 
@@ -24,23 +26,26 @@ export class HoursService implements OnDestroy {
     private hoursFirestore: HoursFirebaseProviderService,
     private auth: AngularFireAuth
   ) {
-    this.targetHourSubject = new BehaviorSubject<Hour>(environment.targetHour);
-    this.targetHour$ = this.targetHourSubject.asObservable();
-
+    this.provider = this.hoursIndexedDB;
+    this.target$ = from(this.getTargetHour());
     this.subscription = new Subscription();
     this.subscription.add(
       this.auth.authState.subscribe((user) => {
-        this.changeProvider(user != null);
+        this.changeProvider(user);
       })
     );
-    this.changeProvider(auth.currentUser != null);
+    this.initializeProvider();
   }
 
-  private async changeProvider(authenticated: boolean) {
-    this.provider = authenticated ? this.hoursFirestore : this.hoursIndexedDB;
-    await this.updateTargetHour();
-    this.hours$ = this.provider.hours$.pipe(
-      tap((hours) => this.updateTargetHour(hours))
+  private async initializeProvider() {
+    this.changeProvider(await this.auth.currentUser);
+  }
+
+  private async changeProvider(user: firebase.User) {
+    this.provider =
+      user?.uid != null ? this.hoursFirestore : this.hoursIndexedDB;
+    this.target$ = this.hours$.pipe(
+      concatMap(() => from(this.getTargetHour()))
     );
   }
 
@@ -61,13 +66,7 @@ export class HoursService implements OnDestroy {
   }
 
   async getTargetHour(): Promise<Hour> {
-    return this.targetHourSubject.getValue();
-  }
-
-  async updateTargetHour(hours?: Hour[]) {
-    if (!Array.isArray(hours)) {
-      hours = await this.getHours();
-    }
+    const hours = await this.getHours();
 
     const current = moment();
     const currentHours = [environment.targetHour, ...hours];
@@ -82,7 +81,7 @@ export class HoursService implements OnDestroy {
 
     currentHours.sort((a, b) => diff(a) - diff(b));
 
-    this.targetHourSubject.next(currentHours[0]);
+    return currentHours[0];
   }
 
   ngOnDestroy() {

@@ -5,11 +5,13 @@
   <div class="configuration">
     <app-language-selector></app-language-selector>
 
-    <div *ngIf="auth.user | async as user; else showLogin">
-      <button pButton type="button" label="Logout" class="p-button-outlined" (click)="logout()"></button>
+    <div class="login-button" *ngIf="auth.user | async as user; else showLogin">
+      <button pButton type="button" label="{{ 'app.config.logout' | translate }}" class="p-button-outlined"
+        (click)="logout()"></button>
     </div>
     <ng-template #showLogin>
-      <button pButton type="button" label="Login with Google" class="p-button-outlined" (click)="login()"></button>
+      <button pButton type="button" label="{{ 'app.config.login' | translate }}" class="p-button-outlined"
+        (click)="login()"></button>
     </ng-template>
   </div>
 </div>

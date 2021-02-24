@@ -1,7 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import * as moment from 'moment';
 import { Moment } from 'moment';
-import { Subscription } from 'rxjs';
+import { from, merge, Subscription } from 'rxjs';
+import { concatMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { TheHourComponentComponent } from '../../components/the-hour-component/the-hour-component.component';
 import { Hour } from '../../shared/models/hour.model';
@@ -17,24 +19,35 @@ export class CountdownComponent implements OnDestroy {
   diff = { hours: 0, minutes: 0, seconds: 0 };
   interval: number;
   TheHourComponentComponent = TheHourComponentComponent;
-  subscription: Subscription;
+  private subscription: Subscription;
 
-  constructor(private hourService: HoursService) {
+  constructor(private hourService: HoursService, public auth: AngularFireAuth) {
     this.subscription = new Subscription();
     this.subscription.add(
-      this.hourService.targetHour$.subscribe((hour) =>
-        this.initializeTarget(hour)
-      )
+      merge(
+        this.hourService.target$,
+        this.auth.authState.pipe(
+          concatMap(() => from(this.hourService.getTargetHour()))
+        )
+      ).subscribe((hour) => this.initializeTarget(hour))
     );
-
-    this.initializeTarget();
   }
 
-  private async initializeTarget(hour?: Hour) {
-    this.targetHour = hour || (await this.hourService.getTargetHour());
+  private async initializeTarget(targetHour: Hour) {
+    this.targetHour = targetHour;
     this.updateTarget();
     this.updateDate();
-    this.interval = setInterval(() => this.updateDate(), 1000);
+    this.resetInterval();
+  }
+
+  private resetInterval() {
+    if (!Number.isNaN(Number(this.interval))) {
+      clearInterval(this.interval);
+    }
+
+    setTimeout(() => {
+      this.interval = setInterval(() => this.updateDate(), 1000);
+    }, 1000 - new Date().getMilliseconds());
   }
 
   private updateTarget() {
@@ -60,7 +73,7 @@ export class CountdownComponent implements OnDestroy {
     }
 
     if (this.target.isBefore(current, 'minutes')) {
-      this.hourService.updateTargetHour();
+      this.initializeTarget(await this.hourService.getTargetHour());
     }
   }
 
@@ -81,7 +94,6 @@ export class CountdownComponent implements OnDestroy {
     if (!Number.isNaN(Number(this.interval))) {
       clearInterval(this.interval);
     }
-
     if (this.subscription instanceof Subscription) {
       this.subscription.unsubscribe();
     }
