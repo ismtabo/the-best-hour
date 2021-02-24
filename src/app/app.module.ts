@@ -27,6 +27,7 @@ import { FlipdownHourComponent } from './components/flipdown-hour/flipdown-hour.
 import { HourComponent } from './components/hour/hour.component';
 import { HourPipe } from './components/hour/hour.pipe';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
+import { DryerShieldComponent } from './components/the-hour-component/shields/dryer-shield/dryer-shield.component';
 import { NightShieldComponent } from './components/the-hour-component/shields/night-shield/night-shield.component';
 import { RainShieldComponent } from './components/the-hour-component/shields/rain-shield/rain-shield.component';
 import { TheHourComponentComponent } from './components/the-hour-component/the-hour-component.component';
@@ -51,6 +52,7 @@ import { dbConfig } from './shared/database/config';
     NightShieldComponent,
     RainShieldComponent,
     ConfigComponent,
+    DryerShieldComponent,
   ],
   imports: [
     // configure the imports

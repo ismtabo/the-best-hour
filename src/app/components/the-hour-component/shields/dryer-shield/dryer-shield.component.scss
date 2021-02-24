@@ -1,0 +1,352 @@
+:host {
+  height: 100%;
+  width: 100%;
+
+  .container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: #ffe2bd;
+    font-size: 50%;
+
+    .drawing {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .person {
+        position: relative;
+        width: 25em;
+        height: 25em;
+
+        .shirt {
+          position: absolute;
+          width: 15.63em;
+          height: 6.25em;
+          background-color: #6cacac;
+          bottom: 0;
+          left: calc(50% - 7.81em);
+          border-top-left-radius: 40% 80%;
+          border-top-right-radius: 40% 80%;
+        }
+
+        .neck {
+          position: absolute;
+          width: 5em;
+          height: 4.94em;
+          left: calc(50% - 2.5em);
+          bottom: 4.38em;
+          border-radius: 43%;
+          background-color: #ffdece;
+        }
+
+        .face {
+          position: absolute;
+          height: 12.5em;
+          width: 11.25em;
+          left: calc(50% - 5.63em);
+          bottom: 6.63em;
+          background-color: #ffdece;
+          border-radius: 43%;
+        }
+
+        .eye {
+          position: absolute;
+          background-color: #2f2f2f;
+          border-radius: 50%;
+          height: 1.38em;
+          width: 1.38em;
+          top: 5.38em;
+          transition: height 0.2s;
+        }
+
+        .eye:nth-of-type(1) {
+          left: calc(50% - 4.06em);
+        }
+
+        .eye:nth-of-type(2) {
+          left: calc(50% + 2.69em);
+        }
+
+        .nose {
+          position: absolute;
+          background-color: #e4a1a1;
+          border-radius: 38%;
+          height: 2.75em;
+          width: 1.5em;
+          top: 5.63em;
+          left: calc(50% - 0.75em);
+        }
+
+        .cheek {
+          position: absolute;
+          background-color: #e4a1a152;
+          border-radius: 50%;
+          height: 1.19em;
+          width: 1.88em;
+          top: 7.44em;
+          transition: top 0.2s;
+        }
+
+        .cheek:nth-of-type(4) {
+          left: calc(50% - 4.38em);
+        }
+
+        .cheek:nth-of-type(5) {
+          left: calc(50% + 2.56em);
+        }
+
+        .mouth {
+          position: absolute;
+          border-radius: 50%;
+          width: 3.13em;
+          border-top: 1.25em solid transparent;
+          border-bottom: 1.25em solid #2f2f2f;
+          bottom: 1.06em;
+          left: calc(50% - 1.56em);
+          transition: width 0.2s, border 0.2s, bottom 0.2s, left 0.2s;
+        }
+
+        .hair {
+          position: absolute;
+          height: 18.63em;
+          width: 16.25em;
+          left: calc(50% - 8.13em);
+          top: 3.88em;
+          border-radius: 45% 45% 10% 10%;
+          background-color: #53382e;
+          transition: transform 0.5s, left 0.5s, top 0.5s;
+        }
+
+        .bangs {
+          position: absolute;
+          height: 5.19em;
+          width: 7.06em;
+          left: calc(50% - 5.31em);
+          top: 5.13em;
+          border-radius: 50%;
+          background-color: #53382e;
+          transform: rotate(24deg);
+          transition: transform 0.5s, top 0.5s;
+        }
+
+        .bangs:after {
+          content: "";
+          position: absolute;
+          height: 5.31em;
+          width: 7.69em;
+          left: 3.94em;
+          top: -1.56em;
+          border-radius: 50%;
+          background-color: #53382e;
+          transform: rotate(7deg);
+        }
+      }
+
+      .hairdryer {
+        position: relative;
+        width: 13.75em;
+        height: 25em;
+        transform: rotate(0deg);
+        transition: transform 0.2s;
+        margin-left: 1.25em;
+
+        .barrel {
+          position: absolute;
+          height: 5.31em;
+          width: 5.31em;
+          background-color: #ae5660;
+          top: 6.25em;
+          left: 1.88em;
+          border-radius: 50%;
+        }
+
+        .barrel:after {
+          content: "";
+          position: absolute;
+          height: 4em;
+          border-left: 1.56em solid #d16874;
+          border-top: 0.19em solid transparent;
+          border-bottom: 0.19em solid transparent;
+          top: 0.44em;
+          left: 7.81em;
+        }
+
+        .barrel:before {
+          content: "";
+          position: absolute;
+          height: 4em;
+          border-left: 6.88em solid #ae5660;
+          border-top: 0.63em solid transparent;
+          border-bottom: 0.63em solid transparent;
+          top: 0;
+          left: 2.5em;
+        }
+
+        .barrel span {
+          position: absolute;
+          height: 3.13em;
+          width: 3.13em;
+          background-color: #d16874;
+          top: 1.06em;
+          left: 0.88em;
+          border-radius: 50%;
+        }
+
+        .handle {
+          position: absolute;
+          height: 5.88em;
+          width: 2.38em;
+          background-color: #6c2731;
+          top: 9.63em;
+          left: 3em;
+          border-bottom-left-radius: 50% 16%;
+          border-bottom-right-radius: 50% 16%;
+          transform: rotate(-5deg);
+        }
+
+        .air {
+          position: absolute;
+          height: 5.06em;
+          width: 6em;
+          top: 6.75em;
+          left: 11.25em;
+        }
+
+        .air span {
+          position: absolute;
+          border-radius: 10% 10% 10% 10% / 30% 30% 30% 30%;
+          background-color: rgba(0, 0, 0, 0.1);
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+
+        .air span:nth-of-type(1) {
+          height: 0.19em;
+          width: 3.44em;
+          top: 1em;
+          left: 0.63em;
+        }
+
+        .air span:nth-of-type(2) {
+          height: 0.19em;
+          width: 4.69em;
+          top: 1.88em;
+          left: 1em;
+        }
+
+        .air span:nth-of-type(3) {
+          height: 0.19em;
+          width: 3.44em;
+          top: 2.88em;
+          left: 0.63em;
+        }
+      }
+    }
+
+    &.active .drawing {
+      .person {
+        .face {
+          .eye {
+            height: 0.5em;
+          }
+          .cheek {
+            top: 6.94em;
+          }
+          .mouth {
+            width: 2.63em;
+            border-top: 0em solid transparent;
+            border-bottom: 0.63em solid #2f2f2f;
+            bottom: 2em;
+            left: calc(50% - 1.31em);
+          }
+        }
+        .hair {
+          transform: rotate(-72deg);
+          left: calc(50% - 6.56em);
+          top: 3.13em;
+          animation: flutter 0.5s infinite linear;
+          animation-delay: 0.5s;
+        }
+        .bangs {
+          transform: rotate(7deg);
+          top: 4.75em;
+          animation: flutter-bangs 0.5s infinite linear;
+          animation-delay: 0.5s;
+        }
+      }
+
+      .hairdryer {
+        transform: rotate(7deg);
+        animation: pulse 1.5s infinite;
+        .air span {
+          opacity: 1;
+          animation: airflow 1s infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes flutter {
+  0% {
+    transform: rotate(-72deg);
+  }
+  50% {
+    transform: rotate(-68deg);
+  }
+  100% {
+    transform: rotate(-72deg);
+  }
+}
+
+@keyframes flutter-bangs {
+  0% {
+    transform: rotate(7deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+  100% {
+    transform: rotate(7deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    height: 25em;
+    padding-left: 0em;
+    margin-left: 0.63em;
+  }
+  25% {
+    height: 25.63em;
+  }
+  50% {
+    height: 25em;
+    padding-left: 0.63em;
+    margin-left: 0em;
+  }
+  75% {
+    height: 25.63em;
+  }
+  100% {
+    height: 25em;
+    padding-left: 0em;
+    margin-left: 0.63em;
+  }
+}
+
+@keyframes airflow {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 6em;
+  }
+}

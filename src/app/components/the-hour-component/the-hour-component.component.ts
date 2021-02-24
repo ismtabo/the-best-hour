@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { DryerShieldComponent } from './shields/dryer-shield/dryer-shield.component';
 import { NightShieldComponent } from './shields/night-shield/night-shield.component';
 import { RainShieldComponent } from './shields/rain-shield/rain-shield.component';
 
@@ -9,8 +10,12 @@ import { RainShieldComponent } from './shields/rain-shield/rain-shield.component
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TheHourComponentComponent implements OnInit {
-  ShieldComponents = [NightShieldComponent, RainShieldComponent];
-  ShieldComponent = this.ShieldComponents[1];
+  ShieldComponents = [
+    NightShieldComponent,
+    RainShieldComponent,
+    DryerShieldComponent,
+  ];
+  ShieldComponent = this.ShieldComponents[2];
 
   constructor() {}
 
