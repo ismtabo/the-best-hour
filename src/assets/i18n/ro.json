@@ -19,7 +19,13 @@
       "title": "Setare",
       "language": "Idiom",
       "login": "Conectați-vă cu Google",
-      "logout": "Deconectează-te"
+      "logout": "Deconectează-te",
+      "shields": {
+        "rain": "Ploaie",
+        "night": "Noapte",
+        "dryer": "Uscător"
+      },
+      "shield": "Masca"
     }
   }
 }

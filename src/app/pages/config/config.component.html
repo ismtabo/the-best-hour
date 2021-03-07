@@ -3,6 +3,21 @@
 
 
   <div class="configuration">
+    <div class="p-field p-col-12 p-md-12">
+      <span class="p-float-label">
+        <p-dropdown inputId="shield" name="shield" [options]="shields" optionValue="value"
+          [ngModel]="currentShield.value" (ngModelChange)="onShieldChange($event)">
+          <ng-template pTemplate="selectedItem">
+            <div translate="{{currentShield.key}}"></div>
+          </ng-template>
+          <ng-template let-shield pTemplate="item">
+            <b translate="{{shield.key}}"></b>
+          </ng-template>
+        </p-dropdown>
+        <label for="shield">{{'app.config.shield'|translate}}</label>
+      </span>
+    </div>
+
     <app-language-selector></app-language-selector>
 
     <div class="login-button" *ngIf="auth.user | async as user; else showLogin">

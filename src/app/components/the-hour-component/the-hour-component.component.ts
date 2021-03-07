@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { UserConfigService } from 'src/app/shared/services/user-config.service';
 import { DryerShieldComponent } from './shields/dryer-shield/dryer-shield.component';
 import { NightShieldComponent } from './shields/night-shield/night-shield.component';
 import { RainShieldComponent } from './shields/rain-shield/rain-shield.component';
@@ -10,14 +11,16 @@ import { RainShieldComponent } from './shields/rain-shield/rain-shield.component
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TheHourComponentComponent implements OnInit {
-  ShieldComponents = [
-    NightShieldComponent,
-    RainShieldComponent,
-    DryerShieldComponent,
-  ];
-  ShieldComponent = this.ShieldComponents[2];
+  private shieldComponents = {
+    night: NightShieldComponent,
+    rain: RainShieldComponent,
+    dryer: DryerShieldComponent,
+  };
+  shieldComponent;
 
-  constructor() {}
+  constructor(private userConfig: UserConfigService) {
+    this.shieldComponent = this.shieldComponents[userConfig.getShield()];
+  }
 
   ngOnInit(): void {}
 }

@@ -13,6 +13,7 @@ import { locales } from '../models/locales';
 export class UserConfigService {
   private localeSubject: BehaviorSubject<Locale>;
   locale$: Observable<Locale>;
+  shield: string;
 
   constructor(
     private translate: TranslateService,
@@ -21,8 +22,10 @@ export class UserConfigService {
     this.localeSubject = new BehaviorSubject<Locale>(null);
     this.locale$ = this.localeSubject.asObservable().pipe(skip(1));
     const localeCode = this.cookies.get('locale') || 'es';
+    const shield = this.cookies.get('shield') || 'dryer';
 
     this.setLocale(localeCode);
+    this.setShield(shield);
   }
 
   setLocale(localeCode: string) {
@@ -39,5 +42,14 @@ export class UserConfigService {
 
   getLanguages(): Locale[] {
     return locales;
+  }
+
+  setShield(shield: string) {
+    this.shield = shield;
+    this.cookies.set('shield', shield);
+  }
+
+  getShield(): string {
+    return this.shield;
   }
 }

@@ -19,7 +19,13 @@
       "title": "Configuración",
       "language": "Idioma",
       "login": "Inicia sesión con Google",
-      "logout": "Cierra sesión"
+      "logout": "Cierra sesión",
+      "shields": {
+        "rain": "Lluvia",
+        "night": "Noche",
+        "dryer": "Secador"
+      },
+      "shield": "Careta"
     }
   }
 }
