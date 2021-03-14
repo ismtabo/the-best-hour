@@ -28,6 +28,11 @@
       <button pButton type="button" label="{{ 'app.config.login' | translate }}" class="p-button-outlined"
         (click)="login()"></button>
     </ng-template>
+
+    <div class="update-button" *ngIf="updateAvailable |async">
+      <button pButton type="button" label="{{ 'app.config.update' | translate }}" class="p-button-outlined"
+        (click)="updateApplication()"></button>
+    </div>
   </div>
 </div>
 

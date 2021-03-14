@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
+import { Observable } from 'rxjs';
+import { ApplicationUpdatesService } from 'src/app/shared/services/application-updates.service';
 import { UserConfigService } from 'src/app/shared/services/user-config.service';
 
 @Component({
@@ -23,14 +25,17 @@ export class ConfigComponent {
     },
   ];
   currentShield: { key: string; value: string };
+  updateAvailable: Observable<boolean>;
 
   constructor(
     public auth: AngularFireAuth,
-    private userConfig: UserConfigService
+    private userConfig: UserConfigService,
+    private updates: ApplicationUpdatesService
   ) {
     this.currentShield = this.shields.find(
       ({ value }) => value === this.userConfig.getShield()
     );
+    this.updateAvailable = this.updates.updateAvailable$;
   }
 
   login() {
@@ -44,5 +49,9 @@ export class ConfigComponent {
   onShieldChange(shield: string) {
     this.currentShield = this.shields.find(({ value }) => value === shield);
     this.userConfig.setShield(shield);
+  }
+
+  updateApplication() {
+    this.updates.updateApplication();
   }
 }

@@ -17,7 +17,9 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxFlagIconCssModule } from 'ngx-flag-icon-css';
 import { NgxIndexedDBModule } from 'ngx-indexed-db';
+import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
+import { BadgeModule } from 'primeng/badge';
 import { DropdownModule } from 'primeng/dropdown';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +35,7 @@ import { RainShieldComponent } from './components/the-hour-component/shields/rai
 import { TheHourComponentComponent } from './components/the-hour-component/the-hour-component.component';
 import { ConfigComponent } from './pages/config/config.component';
 import { CountdownComponent } from './pages/countdown/countdown.component';
+import { ProfileAvatarComponent } from './pages/countdown/profile-avatar.component';
 import { HoursListComponent } from './pages/hours-list/hours-list.component';
 import { SortHoursPipe } from './pages/hours-list/sort-hours.pipe';
 import { dbConfig } from './shared/database/config';
@@ -53,6 +56,7 @@ import { dbConfig } from './shared/database/config';
     RainShieldComponent,
     ConfigComponent,
     DryerShieldComponent,
+    ProfileAvatarComponent,
   ],
   imports: [
     // configure the imports
@@ -83,6 +87,8 @@ import { dbConfig } from './shared/database/config';
     OfflineModule.forRoot({ guardsRedirect: false }),
     DropdownModule,
     ButtonModule,
+    AvatarModule,
+    BadgeModule,
   ],
   bootstrap: [AppComponent],
   providers: [CookieService],
