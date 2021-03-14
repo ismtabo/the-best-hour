@@ -23,6 +23,10 @@ export class ConfigComponent {
       key: 'app.config.shields.dryer',
       value: 'dryer',
     },
+    {
+      key: 'app.config.shields.taxi',
+      value: 'taxi',
+    },
   ];
   currentShield: { key: string; value: string };
   updateAvailable: Observable<boolean>;

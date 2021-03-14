@@ -23,7 +23,8 @@
       "shields": {
         "rain": "Ploaie",
         "night": "Noapte",
-        "dryer": "Uscător"
+        "dryer": "Uscător",
+        "taxi": "Taxi"
       },
       "shield": "Masca",
       "update": "Actualizați Aplicația"

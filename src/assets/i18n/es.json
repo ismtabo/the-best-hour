@@ -23,7 +23,8 @@
       "shields": {
         "rain": "Lluvia",
         "night": "Noche",
-        "dryer": "Secador"
+        "dryer": "Secador",
+        "taxi": "Taxi"
       },
       "shield": "Careta",
       "update": "Actualizar Aplicación"

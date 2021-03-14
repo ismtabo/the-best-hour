@@ -39,6 +39,7 @@ import { ProfileAvatarComponent } from './pages/countdown/profile-avatar.compone
 import { HoursListComponent } from './pages/hours-list/hours-list.component';
 import { SortHoursPipe } from './pages/hours-list/sort-hours.pipe';
 import { dbConfig } from './shared/database/config';
+import { TaxiShieldComponent } from './components/the-hour-component/shields/taxi-shield/taxi-shield.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { dbConfig } from './shared/database/config';
     ConfigComponent,
     DryerShieldComponent,
     ProfileAvatarComponent,
+    TaxiShieldComponent,
   ],
   imports: [
     // configure the imports
