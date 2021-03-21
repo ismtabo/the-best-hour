@@ -40,7 +40,7 @@ import { HoursListComponent } from './pages/hours-list/hours-list.component';
 import { SortHoursPipe } from './pages/hours-list/sort-hours.pipe';
 import { dbConfig } from './shared/database/config';
 import { TaxiShieldComponent } from './components/the-hour-component/shields/taxi-shield/taxi-shield.component';
-import { FruitCakeComponent } from './components/the-hour-component/shields/fruit-cake/fruit-cake.component';
+import { FruitCakeShieldComponent } from './components/the-hour-component/shields/fruit-cake-shield/fruit-cake-shield.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,7 @@ import { FruitCakeComponent } from './components/the-hour-component/shields/frui
     DryerShieldComponent,
     ProfileAvatarComponent,
     TaxiShieldComponent,
-    FruitCakeComponent,
+    FruitCakeShieldComponent,
   ],
   imports: [
     // configure the imports

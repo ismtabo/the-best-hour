@@ -50,6 +50,12 @@
   right: 1em;
   top: 1em;
   font-size: 2em;
+
+  &.float-bottom {
+    z-index: 2;
+    top: unset;
+    bottom: 1em;
+  }
 }
 
 .toggle-link {

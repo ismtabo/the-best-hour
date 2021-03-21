@@ -20,6 +20,8 @@ export class CountdownComponent implements OnDestroy {
   interval: number;
   TheHourComponentComponent = TheHourComponentComponent;
   private subscription: Subscription;
+  isHourFacetVissible: boolean;
+  isSkipButtonVisisble: boolean;
 
   constructor(private hourService: HoursService, public auth: AngularFireAuth) {
     this.subscription = new Subscription();
@@ -34,6 +36,7 @@ export class CountdownComponent implements OnDestroy {
   }
 
   private async initializeTarget(targetHour: Hour) {
+    this.isHourFacetVissible = false;
     this.targetHour = targetHour;
     this.updateTarget();
     this.updateDate();
@@ -70,10 +73,12 @@ export class CountdownComponent implements OnDestroy {
     const seconds = this.target.diff(current, 'seconds') % 60;
     if (!this.isTargetHour()) {
       this.diff = { hours, minutes, seconds };
+    } else if (!this.isHourFacetVissible) {
+      this.isHourFacetVissible = true;
     }
 
     if (this.target.isBefore(current, 'minutes')) {
-      this.initializeTarget(await this.hourService.getTargetHour());
+      this.showSkipButton();
     }
   }
 
@@ -88,6 +93,15 @@ export class CountdownComponent implements OnDestroy {
 
   isTheHour() {
     return this.targetHour === environment.targetHour;
+  }
+
+  showSkipButton() {
+    this.isSkipButtonVisisble = true;
+  }
+
+  async skipFacet() {
+    this.isSkipButtonVisisble = false;
+    await this.initializeTarget(await this.hourService.getTargetHour());
   }
 
   ngOnDestroy() {

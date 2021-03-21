@@ -1,5 +1,5 @@
 <div class="container">
-  <ng-container *ngIf="!isTargetHour()">
+  <ng-container *ngIf="!isHourFacetVissible">
     <div class="message">
       <app-flipdown-hour [hour]="diff"></app-flipdown-hour>
       <ng-container *ngIf="isTheHour(); else elseNotTheHour">
@@ -10,7 +10,7 @@
       </ng-template>
     </div>
   </ng-container>
-  <ng-container *ngIf="isTargetHour()" [ngComponentOutlet]="TheHourComponentComponent">
+  <ng-container *ngIf="isHourFacetVissible" [ngComponentOutlet]="TheHourComponentComponent">
   </ng-container>
 </div>
 
@@ -20,4 +20,10 @@
 
 <div class="float-right config-icon">
   <app-profile-avatar></app-profile-avatar>
+</div>
+
+<div class="float-right float-bottom" *ngIf="isSkipButtonVisisble">
+  <div (click)="skipFacet()">
+    <span class="mdi mdi-skip-next"></span>
+  </div>
 </div>
