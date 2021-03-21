@@ -22,7 +22,7 @@ export class UserConfigService {
     this.localeSubject = new BehaviorSubject<Locale>(null);
     this.locale$ = this.localeSubject.asObservable().pipe(skip(1));
     const localeCode = this.cookies.get('locale') || 'es';
-    const shield = this.cookies.get('shield') || 'taxi';
+    const shield = this.cookies.get('shield') || 'fruit';
 
     this.setLocale(localeCode);
     this.setShield(shield);

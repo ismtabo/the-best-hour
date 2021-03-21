@@ -27,6 +27,10 @@ export class ConfigComponent {
       key: 'app.config.shields.taxi',
       value: 'taxi',
     },
+    {
+      key: 'app.config.shields.fruit',
+      value: 'fruit',
+    },
   ];
   currentShield: { key: string; value: string };
   updateAvailable: Observable<boolean>;
