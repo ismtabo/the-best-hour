@@ -11,10 +11,20 @@
     overflow: hidden;
     background-color: #ffe2bd;
     font-size: 50%;
+    display: flex;
+    gap: 5em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    --color-primary: #ae5660;
+    --color-primary--disabled: #d16874;
+    --color-primary--darker: #6c2731;
+    --color-alternative: #547d83;
+    --color-alternative--disabled: #77949a;
+    --color-alternative--darker: #24565d;
 
     .drawing {
-      height: 100%;
-      width: 100%;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -157,11 +167,25 @@
         transition: transform 0.2s;
         margin-left: 1.25em;
 
+        --bg-color-barrel: var(--color-primary);
+        --color-barrel-after-border-left: var(--color-primary--disabled);
+        --color-barrel-before-border-left: var(--color-primary);
+        --bg-color-barrel-span: var(--color-primary--disabled);
+        --bg-color-handler: var(--color-primary--darker);
+
+        &.alternative {
+          --bg-color-barrel: var(--color-alternative);
+          --color-barrel-after-border-left: var(--color-alternative--disabled);
+          --color-barrel-before-border-left: var(--color-alternative);
+          --bg-color-barrel-span: var(--color-alternative--disabled);
+          --bg-color-handler: var(--color-alternative--darker);
+        }
+
         .barrel {
           position: absolute;
           height: 5.31em;
           width: 5.31em;
-          background-color: #ae5660;
+          background-color: var(--bg-color-barrel);
           top: 6.25em;
           left: 1.88em;
           border-radius: 50%;
@@ -171,7 +195,7 @@
           content: "";
           position: absolute;
           height: 4em;
-          border-left: 1.56em solid #d16874;
+          border-left: 1.56em solid var(--color-barrel-after-border-left);
           border-top: 0.19em solid transparent;
           border-bottom: 0.19em solid transparent;
           top: 0.44em;
@@ -182,7 +206,7 @@
           content: "";
           position: absolute;
           height: 4em;
-          border-left: 6.88em solid #ae5660;
+          border-left: 6.88em solid var(--color-barrel-before-border-left);
           border-top: 0.63em solid transparent;
           border-bottom: 0.63em solid transparent;
           top: 0;
@@ -193,7 +217,7 @@
           position: absolute;
           height: 3.13em;
           width: 3.13em;
-          background-color: #d16874;
+          background-color: var(--bg-color-barrel-span);
           top: 1.06em;
           left: 0.88em;
           border-radius: 50%;
@@ -203,7 +227,7 @@
           position: absolute;
           height: 5.88em;
           width: 2.38em;
-          background-color: #6c2731;
+          background-color: var(--bg-color-handler);
           top: 9.63em;
           left: 3em;
           border-bottom-left-radius: 50% 16%;
@@ -288,6 +312,25 @@
         .air span {
           opacity: 1;
           animation: airflow 1s infinite;
+        }
+      }
+    }
+
+    .selector {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 2em;
+
+      .circle {
+        height: 2em;
+        width: 2em;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+
+        &.alternative {
+          background-color: var(--color-alternative);
         }
       }
     }

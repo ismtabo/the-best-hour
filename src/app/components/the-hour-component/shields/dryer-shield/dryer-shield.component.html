@@ -1,7 +1,8 @@
-<div class="container" [class.active]="active" (click)="onClick()">
-  <audio #audio src="assets/sound/hairdryer.mp3" autoplay loop></audio>
-  <div class="drawing">
-    <div class="hairdryer">
+<div class="container" [class.active]="active">
+  <audio #audio [autoplay]="active" loop src="assets/sound/hairdryer{{alternative ? '-alternative' : ''}}.mp3">
+  </audio>
+  <div class="drawing" (click)="onClick($event)">
+    <div class="hairdryer" [class.alternative]="alternative">
       <div class="handle"></div>
       <div class="barrel">
         <span></span>
@@ -28,5 +29,10 @@
       </div>
       <div class="bangs"></div>
     </div>
+  </div>
+  <div class="selector">
+    <span class="circle"></span>
+    <p-inputSwitch [(ngModel)]="alternative"></p-inputSwitch>
+    <span class="circle alternative"></span>
   </div>
 </div>

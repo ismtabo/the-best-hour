@@ -15,13 +15,13 @@ export class DryerShieldComponent {
   @ViewChild('audio') playerRef: ElementRef<HTMLAudioElement>;
 
   active = true;
+  alternative = false;
 
-  onClick() {
+  async onClick(event: Event) {
+    event.stopPropagation();
     this.active = !this.active;
-    if (this.active) {
-      this.playerRef.nativeElement.play();
-    } else {
-      this.playerRef.nativeElement.pause();
-    }
+    return this.active
+      ? this.playerRef.nativeElement.play()
+      : this.playerRef.nativeElement.pause();
   }
 }
