@@ -80,7 +80,7 @@ export class DiscoShieldEngineService extends EngineService {
   async loadTexture(): Promise<MTLLoader.MaterialCreator> {
     return new Promise((resolve, reject) => {
       new MTLLoader(this.manager)
-        .setPath('/assets/models/')
+        .setPath('assets/models/')
         .load('MirrorBall.mtl', resolve, this.progress, reject);
     });
   }
@@ -89,7 +89,7 @@ export class DiscoShieldEngineService extends EngineService {
     return new Promise((resolve, reject) => {
       new OBJLoader(this.manager)
         .setMaterials(materials)
-        .setPath('/assets/models/')
+        .setPath('assets/models/')
         .load('MirrorBall.obj', resolve, this.progress, reject);
     });
   }
