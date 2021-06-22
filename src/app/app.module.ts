@@ -25,11 +25,13 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EngineComponent } from './components/engine/engine.component';
 import { DigitsPipe } from './components/flipdown-hour/digits.pipe';
 import { FlipdownHourComponent } from './components/flipdown-hour/flipdown-hour.component';
 import { HourComponent } from './components/hour/hour.component';
 import { HourPipe } from './components/hour/hour.pipe';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
+import { DiscoShieldComponent } from './components/the-hour-component/shields/disco-shield/disco-shield.component';
 import { DryerShieldComponent } from './components/the-hour-component/shields/dryer-shield/dryer-shield.component';
 import { FruitCakeShieldComponent } from './components/the-hour-component/shields/fruit-cake-shield/fruit-cake-shield.component';
 import { NightShieldComponent } from './components/the-hour-component/shields/night-shield/night-shield.component';
@@ -62,6 +64,8 @@ import { dbConfig } from './shared/database/config';
     ProfileAvatarComponent,
     TaxiShieldComponent,
     FruitCakeShieldComponent,
+    EngineComponent,
+    DiscoShieldComponent,
   ],
   imports: [
     // configure the imports

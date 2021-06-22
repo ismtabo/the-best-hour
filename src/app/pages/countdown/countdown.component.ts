@@ -83,6 +83,7 @@ export class CountdownComponent implements OnDestroy {
   }
 
   isTargetHour() {
+    return true;
     if (this.target == null) {
       return false;
     }

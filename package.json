@@ -1,6 +1,6 @@
 {
   "name": "the-best-hour",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
@@ -30,6 +30,7 @@
     "@ngx-pwa/offline": "^10.0.0",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
+    "@types/three": "^0.129.1",
     "firebase": "^7.0 || ^8.0",
     "flag-icon-css": "^3.5.0",
     "flipdown": "^0.3.2",
@@ -45,6 +46,7 @@
     "primeng": "^11.2.3",
     "reset-css": "^5.0.1",
     "rxjs": "^6.5.5",
+    "three": "^0.129.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },

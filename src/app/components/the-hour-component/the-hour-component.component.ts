@@ -1,5 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UserConfigService } from 'src/app/shared/services/user-config.service';
+import { DiscoShieldComponent } from './shields/disco-shield/disco-shield.component';
 import { DryerShieldComponent } from './shields/dryer-shield/dryer-shield.component';
 import { FruitCakeShieldComponent } from './shields/fruit-cake-shield/fruit-cake-shield.component';
 import { NightShieldComponent } from './shields/night-shield/night-shield.component';
@@ -19,11 +20,12 @@ export class TheHourComponentComponent implements OnInit {
     dryer: DryerShieldComponent,
     taxi: TaxiShieldComponent,
     fruit: FruitCakeShieldComponent,
+    disco: DiscoShieldComponent,
   };
   shieldComponent;
 
   constructor(private userConfig: UserConfigService) {
-    this.shieldComponent = this.shieldComponents[userConfig.getShield()];
+    this.shieldComponent = this.shieldComponents[this.userConfig.getShield()];
   }
 
   ngOnInit(): void {}
