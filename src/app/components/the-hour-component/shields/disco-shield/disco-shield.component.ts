@@ -14,7 +14,21 @@ import { DiscoShieldEngineService } from './disco-shield-engine.service';
   ],
 })
 export class DiscoShieldComponent implements OnInit {
-  constructor() {}
+  songs = [
+    'f46525e0005a36a105eb344f185625dc',
+    'd158cda6466f3334c46c29a7c52060b1',
+  ];
+  song: string;
+
+  constructor() {
+    let songIdx: number;
+    if (Math.random() > 0.5) {
+      songIdx = 0;
+    } else {
+      songIdx = 1;
+    }
+    this.song = `assets/sound/${this.songs[songIdx]}.mp3`;
+  }
 
   ngOnInit(): void {}
 }

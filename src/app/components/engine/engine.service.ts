@@ -10,6 +10,10 @@ export class EngineService implements OnDestroy {
   protected scene: THREE.Scene;
   protected light: THREE.AmbientLight;
   protected manager: THREE.LoadingManager;
+  protected clock = new THREE.Clock();
+  protected delta = 0;
+  // 30 fps
+  protected interval = 1 / 30;
 
   protected cube: THREE.Mesh;
 
@@ -62,24 +66,33 @@ export class EngineService implements OnDestroy {
     // because it could trigger heavy changeDetection cycles.
     this.ngZone.runOutsideAngular(() => {
       if (document.readyState !== 'loading') {
-        this.render();
+        this.update();
       } else {
         window.addEventListener('DOMContentLoaded', () => {
-          this.render();
+          this.update();
         });
       }
-
       window.addEventListener('resize', () => {
         this.resize();
       });
     });
   }
 
-  public render(): void {
+  public update(): void {
     this.frameId = requestAnimationFrame(() => {
-      this.render();
+      this.update();
     });
+    this.delta += this.clock.getDelta();
 
+    if (this.delta > this.interval) {
+      // The draw or time dependent code are here
+      this.render();
+
+      this.delta = this.delta % this.interval;
+    }
+  }
+
+  public render(): void {
     this.cube.rotation.x += 0.01;
     this.cube.rotation.y += 0.01;
     this.renderer.render(this.scene, this.camera);

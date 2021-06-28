@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import * as moment from 'moment';
-import { Moment } from 'moment';
+import moment, { Moment } from 'moment';
 import { from, merge, Subscription } from 'rxjs';
 import { concatMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -83,6 +82,10 @@ export class CountdownComponent implements OnDestroy {
   }
 
   isTargetHour() {
+    if (environment.alwaysShowFacet) {
+      return true;
+    }
+
     if (this.target == null) {
       return false;
     }
